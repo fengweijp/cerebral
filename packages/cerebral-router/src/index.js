@@ -38,7 +38,7 @@ export default function Router (options = {}) {
       throw new Error('Cerebral router - mapper option must be provided.')
     }
 
-    const routesConfig = flattenConfig(passedRoutesConfig)
+    const routesConfig = options.routes || flattenConfig(passedRoutesConfig)
 
     if (!options.baseUrl && options.onlyHash) {
       // autodetect baseUrl

@@ -17,6 +17,20 @@ describe('Router', () => {
     addressbar.value = '/'
     addressbar.removeAllListeners('change')
   })
+  it('should be able to define routes as config', () => {
+    let count = 0
+    Controller({
+      router: Router({
+        routes: {
+          '/': 'test'
+        }
+      }),
+      signals: {
+        test: [() => { count++ }]
+      }
+    })
+    assert.equal(count, 1)
+  })
   it('should expose base router and accept custom mapper', () => {
     let count = 0
     Controller({
